@@ -30,6 +30,7 @@
               <th>Name</th>
               <th>Lastname</th>
               <th>Rut</th>
+              <th>Profile Image</th>
               <th>Actions</th>
             </tr>
             </thead>
@@ -41,7 +42,11 @@
                   <td><%= user.name %></td>
                   <td><%= user.lastname %></td>
                   <td><%= user.rut %></td>
-
+                  <% if user.photos.count > 0 %>
+                      <td><%= image_tag user.photos.first.photo.url(:small) %></td>
+                  <% else %>
+                      <td></td>
+                  <%end %>
 
                   <td>
                     <%= link_to 'Show', user ,  :class =>"btn btn-primary btn-block btn-xs"%>

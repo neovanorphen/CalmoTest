@@ -1,0 +1,13 @@
+<div class="nested-fields ">
+  <div class="input-group">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.label :photo, "Photo", class: "col-sm-2 control-label" %>
+        <%= f.file_field :photo , class: "form-control "%>
+      </div>
+    </div>
+    <div class="input-group-btn">
+      <%= link_to_remove_association "Remove", f , :class => "btn btn-danger"  %>
+    </div><!-- /btn-group -->
+  </div>
+</div>

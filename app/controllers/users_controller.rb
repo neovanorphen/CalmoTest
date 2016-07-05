@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json {render :json =>@user}
+      end
   end
 
   # GET /users/new
@@ -69,7 +73,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:rut, :name, :email, :birth_date, :password,
-                                   socials_attributes:[:id, :name, :social_type,:_destroy])
+      params.require(:user).permit(:rut, :name,:lastname, :email, :birth_date, :password,
+                                   socials_attributes:[:id, :name, :social_type,:_destroy],
+                                   photos_attributes:[:id, :photo,:_destroy])
     end
 end

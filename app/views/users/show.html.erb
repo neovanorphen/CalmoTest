@@ -46,26 +46,36 @@
             <div class="col-md-6">
               <div class="box box-default">
                 <div class="box-header with-border">
-                  <i class="fa fa-warning"></i>
+                  <i class="fa fa-facebook-official"></i>
                   <h3 class="box-title">Social Networks</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-
                   <% @user.socials.each do |item| %>
                         <dt>Social Type:<%=item.social_type%></dt>
                         <dd>Name:<%=item.name %></dd>
                   <% end %>
-
-
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div> <!-- /.row -->
 
-
-
-
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-default">
+                <div class="box-header with-border">
+                  <i class="fa fa-file-image-o"></i>
+                  <h3 class="box-title">Profile pictures</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <% @user.photos.each do |item| %>
+                      <%= image_tag item.photo.url(:small) %>
+                <% end %>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div> <!-- /.row -->
         </div>
+
         <div class="box-footer">
           <%= link_to 'Edit', edit_user_path(@user) ,:class =>"btn bg-purple margin"%>
           <%= link_to 'Back', users_path,:class =>"btn bg-purple margin"%>
