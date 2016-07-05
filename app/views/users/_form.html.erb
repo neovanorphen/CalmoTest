@@ -1,0 +1,71 @@
+
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="box-body">
+      <div class="form-group">
+        <%= f.label :rut %><br>
+        <%= f.text_field :rut  , :class => 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name  , :class => 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :lastname %><br>
+        <%= f.text_field :lastname  , :class => 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %><br>
+        <%= f.text_field :email  , :class => 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= f.label :birth_date %><br>
+        <%= f.date_select :birth_date %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %><br>
+        <%= f.password_field :password  , :class => 'form-control'%>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="box box-info">
+        <div class="box-header">
+          <h3 class="box-title">Social Networks</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <%= f.fields_for :socials do |social| %>
+              <%= render 'social', :f => social %>
+          <% end %>
+          <p><%= link_to_add_association "Add Social",f, :socials, :class=> "btn btn-primary pull-right", :partial => "social" %></p>
+        </div>
+      </div>
+    </div>
+
+
+
+    </div><!-- /.box-body -->
+
+    <div class="box-footer">
+      <%= f.submit "Save", :class => "btn btn-primary" %>
+      <%= link_to 'Back', users_path ,:class =>"btn bg-purple margin"%>
+    </div>
+<% end %>
+

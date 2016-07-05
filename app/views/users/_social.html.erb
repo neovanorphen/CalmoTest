@@ -1,0 +1,17 @@
+<div class="nested-fields ">
+  <div class="input-group margin">
+    <div class="row">
+      <div class="col-sm-4">
+        Name :
+        <%= f.text_field :name  , :class => 'form-control'%>
+      </div>
+      <div class="col-sm-4">
+        Social Type :
+        <%= f.text_field :social_type  , :class => 'form-control'%>
+      </div>
+    </div>
+    <div class="input-group-btn">
+      <%= link_to_remove_association "Remove", f , :class => "btn btn-danger"  %>
+    </div><!-- /btn-group -->
+  </div>
+</div>

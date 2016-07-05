@@ -1,0 +1,76 @@
+<section class="content-header">
+  <h1>
+    Users
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Users Admin</a></li>
+    <li><a href="#">Users</a></li>
+    <li class="active">User Details</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">User Details</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+          <p>
+            <strong>Email:</strong>
+            <%= @user.email %>
+          </p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @user.name %>
+          </p>
+          <p>
+            <strong>Lastname:</strong>
+            <%= @user.lastname %>
+          </p>
+          <p>
+            <strong>Rut</strong>
+            <%= @user.rut %>
+          </p>
+          <p>
+            <strong>Birthdate:</strong>
+            <%= @user.birth_date %>
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-default">
+                <div class="box-header with-border">
+                  <i class="fa fa-warning"></i>
+                  <h3 class="box-title">Social Networks</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
+                  <% @user.socials.each do |item| %>
+                        <dt>Social Type:<%=item.social_type%></dt>
+                        <dd>Name:<%=item.name %></dd>
+                  <% end %>
+
+
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div> <!-- /.row -->
+
+
+
+
+        </div>
+        <div class="box-footer">
+          <%= link_to 'Edit', edit_user_path(@user) ,:class =>"btn bg-purple margin"%>
+          <%= link_to 'Back', users_path,:class =>"btn bg-purple margin"%>
+        </div>
+      </div><!-- /.box -->
+    </div>
+  </div>   <!-- /.row -->
+</section><!-- /.content -->
