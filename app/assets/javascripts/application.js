@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require jquery-ui
 //= require app
 //= require cocoon
 //= require_tree .

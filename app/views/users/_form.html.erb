@@ -1,4 +1,3 @@
-
 <%= form_for  @user, :html => { :multipart => true }, :remote => true do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -73,10 +72,10 @@
     </div>
 
     </div><!-- /.box-body -->
-
     <div class="box-footer">
       <%= f.submit "Save", :class => "btn btn-primary" %>
       <%= link_to 'Back', users_path ,:class =>"btn bg-purple margin"%>
+      <p>Falta la redireccion de la pagina al momento de hacer el submit de las fotos. al presionar back ya estaran cargadas</p>
     </div>
 <% end %>
 

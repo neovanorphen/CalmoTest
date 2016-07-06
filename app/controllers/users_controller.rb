@@ -5,6 +5,14 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    respond_to do |format|
+      format.html # index.html.erb
+      if params[:rut] != ''
+        format.json {
+          render( :json => @users = User.all.where("rut LIKE ?", "%#{params[:term]}%").map(&:rut))
+        }
+      end
+    end
   end
 
   # GET /users/1
@@ -34,6 +42,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -48,6 +57,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }

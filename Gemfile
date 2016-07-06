@@ -41,7 +41,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'adminlte2-rails'
 
-
 gem 'jquery-ui-rails'
 
 gem 'ionicons-rails'
@@ -49,5 +48,5 @@ gem 'font-awesome-rails'
 
 gem 'cocoon'
 gem 'paperclip'
-gem 'remotipart', '~> 1.2'
+gem 'remotipart',  '~> 1.2'
 

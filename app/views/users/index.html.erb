@@ -36,22 +36,22 @@
             </thead>
 
             <tbody>
-            <% @users.each do |user| %>
+            <%@users.each do |user|%>
                 <tr>
                   <td><%= user.email %></td>
                   <td><%= user.name %></td>
                   <td><%= user.lastname %></td>
                   <td><%= user.rut %></td>
-                  <% if user.photos.count > 0 %>
+                  <%if user.photos.count > 0%>
                       <td><%= image_tag user.photos.first.photo.url(:small) %></td>
                   <% else %>
                       <td></td>
-                  <%end %>
+                  <%end%>
 
                   <td>
-                    <%= link_to 'Show', user ,  :class =>"btn btn-primary btn-block btn-xs"%>
+                    <%= link_to 'Show', user , :class =>"btn btn-primary btn-block btn-xs"%>
                     <%= link_to 'Edit', edit_user_path(user),:class =>"btn btn-warning btn-block btn-xs" %>
-                    <%= link_to 'Delete', user, method: :delete, data: { confirm: 'are you sure?' },:class =>"btn btn-danger btn-block btn-xs" %>
+                    <%= link_to 'Delete', user, method: :delete, data: { confirm: 'are you sure?' },:class =>"btn btn-danger btn-block btn-xs"%>
                   </td>
                 </tr>
             <% end %>
